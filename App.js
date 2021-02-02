@@ -97,8 +97,8 @@ export default function App() {
           <Text style={{marginBottom: 10}}>{pro.toFixed(2)}</Text>
 
         
-        <Button onPress={calculate} title="Calculate"></Button>
-        <StatusBar style="auto" />
+          <Button onPress={calculate} title="Calculate"></Button>
+          <StatusBar style="auto" />
         </View>    
     </View>
   );
