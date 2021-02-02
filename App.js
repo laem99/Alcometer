@@ -56,8 +56,7 @@ export default function App() {
               defaultValue={bottles}
               onChangeItem={item => setBottles(item.value)}
               style={styles.dropdown}
-              zIndex={5000}
-            >
+              zIndex={5000} >
             </DropDownPicker>
 
             <Text style={{marginTop: 10}}>Time</Text>
