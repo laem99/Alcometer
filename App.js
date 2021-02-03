@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import RadioForm from 'react-native-simple-radio-button';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { Platform } from 'react-native';
 
 export default function App() {
 
@@ -40,6 +41,11 @@ export default function App() {
         <TextInput style={styles.input} keyboardType="numeric" placeholder="Enter weight" value={weight} onChangeText={text => setWeight(text)}></TextInput>
       </View>
 
+      <View style={{
+        ...(Platform.OS !== 'android' && {
+            zIndex: 1000
+        })
+      }}>
         <Text>Bottles</Text>
         <DropDownPicker items={[
               { label: '1 bottles', value: 1 },
@@ -58,26 +64,33 @@ export default function App() {
               style={styles.dropdown}
               zIndex={5000} >
             </DropDownPicker>
+            </View>
 
-            <Text style={{marginTop: 10}}>Time</Text>
-            <DropDownPicker items={[
-              { label: '1 hours', value: 1 },
-              { label: '2 hours', value: 2 },
-              { label: '3 hours', value: 3 },
-              { label: '4 hours', value: 4 },
-              { label: '5 hours', value: 5 },
-              { label: '6 hours', value: 6 },
-              { label: '7 hours', value: 7 },
-              { label: '8 hours', value: 8 },
-              { label: '9 hours', value: 9 },
-            ]}
-              containerStyle={{ height: 40 }}
-              defaultValue={time}
-              onChangeItem={item => setTime(item.value)}
-              style={styles.dropdown}
-              zIndex={5000}
-            >
-            </DropDownPicker>
+        <View style={{
+          ...(Platform.OS !== 'android' && {
+            zIndex: 1000
+          })
+        }}>
+          <Text style={{marginTop: 10}}>Time</Text>
+          <DropDownPicker items={[
+            { label: '1 hours', value: 1 },
+            { label: '2 hours', value: 2 },
+            { label: '3 hours', value: 3 },
+            { label: '4 hours', value: 4 },
+            { label: '5 hours', value: 5 },
+            { label: '6 hours', value: 6 },
+            { label: '7 hours', value: 7 },
+            { label: '8 hours', value: 8 },
+            { label: '9 hours', value: 9 },
+          ]}
+            containerStyle={{ height: 40 }}
+            defaultValue={time}
+            onChangeItem={item => setTime(item.value)}
+            style={styles.dropdown}
+            zIndex={5000}
+          >
+          </DropDownPicker>
+          </View>
 
           <View style={styles.field}>
             <Text style={{marginBottom: 5}}>Gender</Text>
@@ -114,9 +127,6 @@ const styles = StyleSheet.create({
   input: {
     marginTop: 5,
     marginBottom: 5,
-  },
-  dropdown: {
-    zIndex: 1000,
   },
   field: {
     marginTop: 10,
